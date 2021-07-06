@@ -1,0 +1,10 @@
+sample_size	category
+32	B.1.1.7 (pango_lineage)
+18	B.1.351 (pango_lineage)
+34	P.1 (pango_lineage)
+18	B.1.526 (pango_lineage)
+20	B.1.429 (pango_lineage)
+17	B.1.427 (pango_lineage)
+58	B.1.617.2 (pango_lineage)
+
+# Categories not found in metadata

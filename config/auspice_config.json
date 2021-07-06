@@ -1,0 +1,75 @@
+{
+  "title": "Nebraska DHHS SARS-CoV-2 Genomic Analysis",
+  "build_url": "https://dhhs.ne.gov/Pages/default.aspx",
+  "maintainers": [
+    {"name": "Joseph Fauver",
+     "url": "https://grubaughlab.com/"}
+  ],
+  "colorings": [
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "categorical"
+    },
+    {
+      "key": "batch",
+      "title": "Batch",
+      "type": "categorical"
+    },
+    {
+      "key": "group",
+      "title": "Sequencing Lab",
+      "type": "categorical"
+    },
+    {
+      "key": "pango_lineage",
+      "title": "Lineage",
+      "type": "categorical"
+    },
+    {
+      "key": "region_exposure",
+      "title": "Region",
+      "type": "categorical"
+    },
+    {
+      "key": "country_exposure",
+      "title": "Country",
+      "type": "categorical"
+    },
+    {
+      "key": "division_exposure",
+      "title": "Division",
+      "type": "categorical"
+    },
+    {"key":"sequencing_date",
+    "title":"Collected for sequencing",
+    "type":"categorical"
+    }
+  ],
+  "geo_resolutions": [
+    "division_exposure",
+    "country_exposure"
+  ],
+  "display_defaults": {
+    "color_by": "group",
+    "distance_measure": "div",
+    "geo_resolution": "division_exposure",
+    "map_triplicate": true,
+    "branch_label": "clade"
+  },
+  "filters": [
+    "category",
+    "batch",
+    "sequencing_date",
+    "pango_lineage",
+    "division_exposure",
+    "country_exposure",
+    "group"
+  ],
+  "panels": [
+    "tree",
+    "map",
+    "entropy",
+    "frequencies"
+  ]
+}

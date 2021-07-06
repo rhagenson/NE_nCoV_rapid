@@ -1,0 +1,14 @@
+sample_size	category
+17	Iowa (division_exposure)
+16	Illinois (division_exposure)
+18	Missouri (division_exposure)
+19	Indiana (division_exposure)
+18	Colorado (division_exposure)
+17	Kansas (division_exposure)
+16	Wyoming (division_exposure)
+159	Nebraska (division_exposure)
+33	Europe (region_exposure)
+32	Asia (region_exposure)
+157	USA (country_exposure)
+
+# Categories not found in metadata

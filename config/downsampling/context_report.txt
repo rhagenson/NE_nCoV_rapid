@@ -1,0 +1,6 @@
+sample_size	category
+71	Europe (region_exposure)
+73	Asia (region_exposure)
+134	USA (country_exposure)
+
+# Categories not found in metadata
