@@ -232,6 +232,9 @@ if __name__ == '__main__':
                 lineage = dfL.loc[idx, 'pango_lineage']
             dict_row['pango_lineage'] = lineage
 
+            # variant classication (VOI, VOC, VHC)
+            dict_row['category'] = variant_category(lineage)
+            
             found.append(strain)
             lab_label[id] = strain
 
