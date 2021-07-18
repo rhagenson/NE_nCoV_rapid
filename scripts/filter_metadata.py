@@ -148,6 +148,15 @@ if __name__ == '__main__':
     dfN['sequencing_date'] = ''
     dfN['group'] = ''
 
+     # add tag of variant category
+    def variant_category(lineage):
+        var_category = 'Other variants'
+        for name in variants.keys():
+            if lineage == name:
+                var_category = variants[lineage]
+        return var_category
+
+    dfN['category'] = dfN['pango_lineage'].apply(lambda x: variant_category(x))
 
     dfN.fillna('', inplace=True)
     list_columns = dfN.columns.values  # list of column in the original metadata file
@@ -156,7 +165,7 @@ if __name__ == '__main__':
     dfL = pd.read_excel(metadata2, index_col=None, header=0, sheet_name=0,
                         # 'sheet_name' must be changed to match the Excel sheet name
                         converters={'sample': str, 'collection-date': str, 'category': str, 'batch': str, 'group': str})  # this need to be tailored to your lab's naming system
-    dfL = dfL.rename(columns={'collection-date': 'date', 'lab': 'originating_lab'})
+    dfL = dfL.rename(columns={'collection-date': 'date', 'lab': 'originating_lab', 'Lineage': 'pango_lineage'})
 
     dfL.fillna('', inplace=True)
 
