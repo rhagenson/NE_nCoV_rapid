@@ -81,7 +81,9 @@ if __name__ == '__main__':
     print('\n### Parsing metadata...\n')
     # open metadata file as dataframe
     dfN = pd.read_csv(metadata, encoding='utf-8', sep='\t', dtype=str)
-
+    df = dfN
+    dfN = dfN[['region', 'country', 'division', 'location']]
+    
     # set US-based geoscheme
     scheme_list = open(geoscheme, "r").readlines()[1:]
     us_geoscheme = {}
