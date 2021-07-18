@@ -96,16 +96,16 @@ if __name__ == '__main__':
                         us_geoscheme[state] = region
 
     # collect facility data
-    list_facilities = set([facility for facility in dfN['category'].values.tolist() if 'Facility' in facility])
-    usregion_facilities = {}
-    for fac in list_facilities:
-        state = dfN.loc[dfN['category'] == fac, 'division_exposure'].to_list()[0]
-        if state in us_geoscheme:
-            region = us_geoscheme[state]
-            if region not in usregion_facilities:
-                usregion_facilities[region] = [fac]
-            else:
-                usregion_facilities[region] += [fac]
+   # list_facilities = set([facility for facility in dfN['category'].values.tolist() if 'Facility' in facility])
+   # usregion_facilities = {}
+   # for fac in list_facilities:
+   #     state = dfN.loc[dfN['category'] == fac, 'division_exposure'].to_list()[0]
+   #     if state in us_geoscheme:
+   #         region = us_geoscheme[state]
+   #         if region not in usregion_facilities:
+   #             usregion_facilities[region] = [fac]
+   #         else:
+   #             usregion_facilities[region] += [fac]
 
     # collect group data
     list_groups = set([group for group in dfN['group'].values.tolist()])
