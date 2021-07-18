@@ -31,7 +31,7 @@ if __name__ == '__main__':
     # output1 = path + 'pre-analyses/metadata_filtered.tsv'
     # output2 = path + 'pre-analyses/sequences.fasta'
     
-     variants = {'B.1.1.7': 'Alpha (B.1.1.7)',
+    variants = {'B.1.1.7': 'Alpha (B.1.1.7)',
                 'B.1.351': 'Beta (B.1.351)',
                 'B.1.351.2': 'Beta (B.1.351.2)',
                 'B.1.351.3': 'Beta (B.1.351.3)',
