@@ -8,7 +8,7 @@
   "colorings": [
     {
       "key": "category",
-      "title": "Category",
+      "title": "Variant category",
       "type": "categorical"
     },
     {
