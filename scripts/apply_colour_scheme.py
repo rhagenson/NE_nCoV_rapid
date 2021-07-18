@@ -436,26 +436,30 @@ if __name__ == '__main__':
 
     # special colouring
     categories = {'International': '#BFBFBF', 'USA': '#A6A6A6'}
+    
+    # VOC / VOI
+    list_category = [up_number for up_number in sorted(set(df['category'].to_list())) if up_number != 'Other variants']
+    list_hex = list([hue_to_rgb(int(x)) for x in np.linspace(30, 240, len(list_category)*2, endpoint=True)])
+    skip_hex = [h for n, h in enumerate(list_hex) if n in range(0, len(list_hex), 2)][::-1]  
+    
     results['category'] = {}
-    usregion_hues = {
-        'USA-Northeast': 220, # blues
-        'USA-Midwest': 280, # purples
-        'USA-South': 0, # reds
-        'USA-West': 40 # yellows
-        }
+    for category, hex in zip(list_category, skip_hex):
+        results['category'].update({category: hex})
+        print(category, hex)
+    results['category'].update({'Other variants': '#808080'})
 
-    for us_region, hue in usregion_hues.items():
-        start, end = hue_to_hex[hue]
-        if us_region in usregion_facilities:
-            facilities = sorted(usregion_facilities[us_region])
-            gradient = linear_gradient(start, end, len(facilities))
-            # print(us_region, hue, facilities, gradient)
-            for facility, colour in zip(facilities, gradient):
-                categories[facility] = colour
+   # for us_region, hue in usregion_hues.items():
+   #     start, end = hue_to_hex[hue]
+   #     if us_region in usregion_facilities:
+   #         facilities = sorted(usregion_facilities[us_region])
+   #         gradient = linear_gradient(start, end, len(facilities))
+   #         # print(us_region, hue, facilities, gradient)
+   #         for facility, colour in zip(facilities, gradient):
+   #             categories[facility] = colour
 
-    for cat, hex in categories.items():
-        results['category'].update({cat: hex})
-        print('category', cat, hex)
+   # for cat, hex in categories.items():
+   #     results['category'].update({cat: hex})
+   #     print('category', cat, hex)
 
     # special colouring for groups
     groups = {'Creighton': '#121de6', 'NPHL': '#9306c2', 'UNMC':'#de0707'}
