@@ -334,7 +334,18 @@ if __name__ == '__main__':
         else:
             colour_wheel[region] = hue_to_hex[palette[region]]
 
+            
+    ''' SET COLOUR SCHEME FOR UPDATES '''
 
+    # convert a hue value into an rgb colour, and then hex colour
+    def hue_to_rgb(hue):
+        colour = int(hue / 240 * 255)
+        # print(colour)
+        luminance = 0.7
+        rgb = [c * 255 * luminance for c in list(cm.jet(colour))[:-1]]
+        # print(rgb)
+        return RGB_to_hex(rgb)
+    
     results = {trait: {} for trait in columns}
 
 
