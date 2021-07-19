@@ -83,6 +83,7 @@ if __name__ == '__main__':
     dfN = pd.read_csv(metadata, encoding='utf-8', sep='\t', dtype=str)
     df = dfN
     print(df)
+    print(set(df['Cluster_ID'].to_list()))
     
     # set US-based geoscheme
     scheme_list = open(geoscheme, "r").readlines()[1:]
