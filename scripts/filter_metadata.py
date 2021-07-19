@@ -147,6 +147,7 @@ if __name__ == '__main__':
     dfN['batch'] = ''
     dfN['sequencing_date'] = ''
     dfN['group'] = ''
+    dfN['Cluster_ID'] = ''
 
      # add tag of variant category
     def variant_category(lineage):
