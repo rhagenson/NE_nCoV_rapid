@@ -225,6 +225,7 @@ if __name__ == '__main__':
             dict_row['authors'] = row['group']
             dict_row['batch'] = 'Batch' + str('0' * (3 - len(row['batch']))) + row['batch']
             dict_row['sequencing_date'] = row['sequencing-collection-date'].strftime('%Y-%m-%d')
+            dict_row['Cluster_ID'] = row['Cluster_ID']
 
             # add lineage
             lineage = ''
