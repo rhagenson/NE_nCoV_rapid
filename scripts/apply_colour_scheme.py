@@ -462,7 +462,7 @@ if __name__ == '__main__':
     results['category'].update({'Other variants': '#808080'})
     
     # Cluster identification
-    list_cluster = [up_number for up_number in sorted(set(df['Cluster_ID'].to_list())) if up_number not in [np.NAN, None, '']]
+    list_cluster = [up_number for up_number in set(df['Cluster_ID'].to_list()) if up_number not in [np.NAN, None, '']]
     list_hex = list([hue_to_rgb(int(x)) for x in np.linspace(30, 240, len(list_cluster)*2, endpoint=True)])
     skip_hex = [h for n, h in enumerate(list_hex) if n in range(0, len(list_hex), 2)][::-1]  
     
