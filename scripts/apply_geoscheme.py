@@ -89,7 +89,7 @@ if __name__ == '__main__':
         # flatten country and division names
         country = dfN.loc[idx, 'country_exposure']
         if country not in focus:
-            dfN.loc[idx, 'category'] = 'International'
+            dfN.loc[idx, 'category'] = ''
             dfN.loc[idx, 'division_exposure'] = ''
             dfN.loc[idx, 'location'] = ''
 
