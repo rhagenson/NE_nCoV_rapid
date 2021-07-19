@@ -447,7 +447,6 @@ if __name__ == '__main__':
 
 
     # special colouring
-    categories = {'International': '#BFBFBF', 'USA': '#A6A6A6'}
     
     # VOC / VOI
     list_category = [up_number for up_number in sorted(set(df['category'].to_list())) if up_number != 'Other variants']
