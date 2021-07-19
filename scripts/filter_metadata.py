@@ -165,7 +165,7 @@ if __name__ == '__main__':
     # Lab genomes metadata
     dfL = pd.read_excel(metadata2, index_col=None, header=0, sheet_name=0,
                         # 'sheet_name' must be changed to match the Excel sheet name
-                        converters={'sample': str, 'collection-date': str, 'category': str, 'batch': str, 'group': str})  # this need to be tailored to your lab's naming system
+                        converters={'sample': str, 'collection-date': str, 'category': str, 'batch': str, 'group': str, 'Cluster_ID': str})  # this need to be tailored to your lab's naming system
     dfL = dfL.rename(columns={'collection-date': 'date', 'lab': 'originating_lab'})
 
     dfL.fillna('', inplace=True)
