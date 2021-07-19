@@ -17,6 +17,11 @@
       "type": "categorical"
     },
     {
+      "key": "Cluster_ID",
+      "title": "Cluster ID",
+      "type": "categorical"
+    },
+    {
       "key": "group",
       "title": "Sequencing Lab",
       "type": "categorical"
@@ -64,7 +69,8 @@
     "pango_lineage",
     "division_exposure",
     "country_exposure",
-    "group"
+    "group",
+    "Cluster_ID"
   ],
   "panels": [
     "tree",
