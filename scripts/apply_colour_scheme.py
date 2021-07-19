@@ -82,6 +82,7 @@ if __name__ == '__main__':
     # open metadata file as dataframe
     dfN = pd.read_csv(metadata, encoding='utf-8', sep='\t', dtype=str)
     df = dfN
+    print(df)
     print(sorted(set(df['Cluster_ID'].to_list())    
     
     # set US-based geoscheme
