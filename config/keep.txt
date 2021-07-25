@@ -976,6 +976,9 @@ England/NORT-1BD8D93/2021
 England/NORT-1BD922A/2021
 England/ALDP-1788FAF/2021
 Australia/NSW1728/2021
+USA/NC-CDC-LC0078472/2021
+USA/SC-CDC-QDX25847577/2021
+USA/SC-CDC-QDX25847674/2021
 
 # Pre-existing genomes listed in keep.txt
 # reference genomes
