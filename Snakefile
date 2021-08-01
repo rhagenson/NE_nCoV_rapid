@@ -74,6 +74,8 @@ rule filter_metadata:
 		genomes = rules.add_sequences.output.sequences,
 		metadata1 = files.full_metadata,
 		metadata2 = files.metadata_lab
+	params:
+		filter = files.filt
 	output:
 		filtered_metadata = "pre-analyses/metadata_filtered.tsv",
 		sequences = "data/sequences.fasta"
