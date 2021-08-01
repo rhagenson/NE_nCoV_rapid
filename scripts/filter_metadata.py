@@ -15,6 +15,7 @@ if __name__ == '__main__':
     parser.add_argument("--genomes", required=True, help="FASTA file genomes to be used")
     parser.add_argument("--metadata1", required=True, help="Metadata file from NextStrain")
     parser.add_argument("--metadata2", required=False, help="Custom lab metadata file")
+    parser.add_argument("--filter", required=False, nargs='+', type=str,  help="List of filters for tagged rows in lab metadata")
     parser.add_argument("--output1", required=True, help="Filtered metadata file")
     parser.add_argument("--output2", required=True, help="Reformatted, final FASTA file")
     args = parser.parse_args()
@@ -22,6 +23,7 @@ if __name__ == '__main__':
     genomes = args.genomes
     metadata1 = args.metadata1
     metadata2 = args.metadata2
+    filterby = args.filter
     output1 = args.output1
     output2 = args.output2
 
@@ -30,6 +32,10 @@ if __name__ == '__main__':
     # metadata2 = path + 'pre-analyses/SC2_Project_NE_DHHS.xlsx'
     # output1 = path + 'pre-analyses/metadata_filtered.tsv'
     # output2 = path + 'pre-analyses/sequences.fasta'
+    
+    # temporal boundaries
+    today = time.strftime('%Y-%m-%d', time.gmtime())
+    min_date = '2019-12-15'
     
     variants = {'B.1.1.7': 'Alpha (B.1.1.7)',
                 'B.1.351': 'Beta (B.1.351)',
