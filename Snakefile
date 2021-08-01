@@ -163,7 +163,8 @@ rule colours:
 		--geoscheme {input.geoscheme} \
 		--grid {input.colour_grid} \
 		--columns {params.columns} \
-		--output {output.colours}
+		--output {output.colours} \
+		--filter {params.filt}
 		"""
 
 
