@@ -33,7 +33,7 @@ rule files:
 		clades = "config/clades.tsv",
 		auspice_config = "config/auspice_config.json",
 		dropped_strains = "config/dropped_strains.txt",
-		aligned = "config/aligned.fasta"
+		aligned = "config/aligned.fasta",
 		filt = "nebraska"
 
 
