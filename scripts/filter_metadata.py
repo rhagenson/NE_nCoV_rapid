@@ -174,9 +174,39 @@ if __name__ == '__main__':
     dfL = pd.read_excel(metadata2, index_col=None, header=0, sheet_name=0,
                         # 'sheet_name' must be changed to match the Excel sheet name
                         converters={'sample': str, 'collection-date': str, 'category': str, 'batch': str, 'group': str, 'Cluster_ID': str})  # this need to be tailored to your lab's naming system
-    dfL = dfL.rename(columns={'collection-date': 'date', 'lab': 'originating_lab'})
+    dfL = dfL.rename(columns={'sample': 'id', 'collection-date': 'date', 'lab': 'originating_lab', 'Filter': 'filter' })
 
     dfL.fillna('', inplace=True)
+    
+    # exclude rows with no ID
+    if 'id' in dfL.columns.to_list():
+        dfL = dfL[~dfL['id'].isin([''])]
+
+    lab_sequences = dfL['id'].tolist()
+    # exclude unwanted lab metadata row
+    if len(filterby) > 0:
+        print('\nFiltering metadata by category: ' + ', '.join(filterby) + '\n')
+    dfL = pd.DataFrame(columns=dfL.columns.to_list())
+    for value in filterby:
+        dfF = dfL[dfL['filter'].isin([value])]  # batch inclusion of specific rows
+        dfL = pd.concat([dfL, dfF]) # add filtered rows to dataframe with lab metadata
+
+    # list of relevant genomes sequenced
+    keep_only = dfL['id'].tolist()
+    excluded = [id for id in lab_sequences if id not in keep_only]
+
+    # create a dict of existing sequences
+    sequences = {}
+    for fasta in SeqIO.parse(open(genomes), 'fasta'):  # as fasta:
+        id, seq = fasta.description, fasta.seq
+        if id not in sequences.keys() and id not in excluded:
+            sequences[id] = str(seq)
+
+    # add inexistent columns
+    for col in list_columns:
+        if col not in dfL.columns:
+            dfL[col] = ''
+
 
     # output dataframe
     outputDF = pd.DataFrame(columns=list_columns)
