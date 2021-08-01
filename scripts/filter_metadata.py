@@ -281,11 +281,12 @@ if __name__ == '__main__':
                 dict_row['epiweek'] = ''
 
             
+            # record sequence and metadata as found
             found.append(strain)
-            lab_label[id] = strain
-
-            outputDF = outputDF.append(dict_row, ignore_index=True)
-
+            if id not in metadata_issues.keys():
+                lab_label[id] = strain
+                outputDF = outputDF.append(dict_row, ignore_index=True)
+                
     # process metadata from TSV
     dfN = dfN[dfN['strain'].isin(sequences.keys())]
     for idx, row in dfN.iterrows():
