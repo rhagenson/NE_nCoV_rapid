@@ -171,22 +171,23 @@ if __name__ == '__main__':
     list_columns = dfN.columns.values  # list of column in the original metadata file
 
     # Lab genomes metadata
-    dfL = pd.read_excel(metadata2, index_col=None, header=0, sheet_name=0,
+    dfE = pd.read_excel(metadata2, index_col=None, header=0, sheet_name=0,
                         # 'sheet_name' must be changed to match the Excel sheet name
                         converters={'sample': str, 'collection-date': str, 'category': str, 'batch': str, 'group': str, 'Cluster_ID': str})  # this need to be tailored to your lab's naming system
-    dfL = dfL.rename(columns={'sample': 'id', 'collection-date': 'date', 'lab': 'originating_lab', 'Filter': 'filter' })
+    dfE = dfE.rename(columns={'sample': 'id', 'collection-date': 'date', 'lab': 'originating_lab', 'Filter': 'filter' })
+    dfE['epiweek'] = ''
 
-    dfL.fillna('', inplace=True)
+    dfE.fillna('', inplace=True)
     
     # exclude rows with no ID
-    if 'id' in dfL.columns.to_list():
-        dfL = dfL[~dfL['id'].isin([''])]
+    if 'id' in dfE.columns.to_list():
+        dfE = dfE[~dfE['id'].isin([''])]
 
-    lab_sequences = dfL['id'].tolist()
+    lab_sequences = dfE['id'].tolist()
     # exclude unwanted lab metadata row
     if len(filterby) > 0:
         print('\nFiltering metadata by category: ' + ', '.join(filterby) + '\n')
-    dfL = pd.DataFrame(columns=dfL.columns.to_list())
+    dfL = pd.DataFrame(columns=dfE.columns.to_list())
     for value in filterby:
         dfF = dfL[dfL['filter'].isin([value])]  # batch inclusion of specific rows
         dfL = pd.concat([dfL, dfF]) # add filtered rows to dataframe with lab metadata
