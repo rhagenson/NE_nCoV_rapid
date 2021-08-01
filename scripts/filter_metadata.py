@@ -189,7 +189,7 @@ if __name__ == '__main__':
         print('\nFiltering metadata by category: ' + ', '.join(filterby) + '\n')
     dfL = pd.DataFrame(columns=dfE.columns.to_list())
     for value in filterby:
-        dfF = dfL[dfL['filter'].isin([value])]  # batch inclusion of specific rows
+        dfF = dfE[dfE['filter'].isin([value])]  # batch inclusion of specific rows
         dfL = pd.concat([dfL, dfF]) # add filtered rows to dataframe with lab metadata
 
     # list of relevant genomes sequenced
@@ -213,7 +213,7 @@ if __name__ == '__main__':
     outputDF = pd.DataFrame(columns=list_columns)
     found = []
     lab_label = {}
-
+    metadata_issues = {}
     # process metadata from excel sheet
     for idx, row in dfL.iterrows():
         id = dfL.loc[idx, 'id']
@@ -273,6 +273,13 @@ if __name__ == '__main__':
 
             # variant classication (VOI, VOC, VHC)
             dict_row['category'] = variant_category(lineage)
+            
+            # assign epiweek
+            if len(dict_row['date']) > 0:
+                dict_row['epiweek'] = get_epiweeks(collection_date)
+            else:
+                dict_row['epiweek'] = ''
+
             
             found.append(strain)
             lab_label[id] = strain
