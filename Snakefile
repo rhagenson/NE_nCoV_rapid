@@ -99,6 +99,8 @@ rule geoscheme:
 	input:
 		filtered_metadata = rules.filter_metadata.output.filtered_metadata,
 		geoscheme = files.geoscheme
+	params:
+		filter = files.filt
 	output:
 		final_metadata = "data/metadata.tsv"
 	shell:
