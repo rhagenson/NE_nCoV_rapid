@@ -255,7 +255,7 @@ if __name__ == '__main__':
                 code = 'un'  # change this line to match the acronym of the most likely state of origin if the 'State' field is unknown
             else:
                 code = row['state']
-            strain = code + '/' + row['id'] + '/' + id # new strain name
+            strain = code + '/' + row['id'] + '/' + sample_id # new strain name
 
             dict_row['strain'] = strain
             dict_row['iso'] = get_iso(dict_row['country'])
