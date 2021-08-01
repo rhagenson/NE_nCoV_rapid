@@ -34,6 +34,7 @@ rule files:
 		auspice_config = "config/auspice_config.json",
 		dropped_strains = "config/dropped_strains.txt",
 		aligned = "config/aligned.fasta"
+		filt = "nebraska"
 
 
 files = rules.files.params
