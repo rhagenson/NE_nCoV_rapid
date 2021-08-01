@@ -151,7 +151,7 @@ rule colours:
 		geoscheme = files.geoscheme,
 		colour_grid = files.colour_grid
 	params:
-		columns = "region_exposure country_exposure division_exposure location"
+		columns = "region_exposure country_exposure division_exposure location",
 		filt = files.filt
 	output:
 		colours = "config/colors.tsv"
