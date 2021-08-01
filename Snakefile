@@ -110,7 +110,8 @@ rule geoscheme:
 		python3 scripts/apply_geoscheme.py \
 			--metadata {input.filtered_metadata} \
 			--geoscheme {input.geoscheme} \
-			--output {output.final_metadata}
+			--output {output.final_metadata} \
+			--filter {params.filter}
 		"""
 
 
