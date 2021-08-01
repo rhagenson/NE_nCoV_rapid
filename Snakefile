@@ -86,6 +86,7 @@ rule filter_metadata:
 			--genomes {input.genomes} \
 			--metadata1 {input.metadata1} \
 			--metadata2 {input.metadata2} \
+			--filter {params.filter} \
 			--output1 {output.filtered_metadata} \
 			--output2 {output.sequences}
 		"""
