@@ -17,6 +17,11 @@
       "type": "categorical"
     },
     {
+      "key": "epiweek",
+      "title": "Epi Week",
+      "type": "categorical"
+    },
+    {
       "key": "Cluster_ID",
       "title": "Cluster ID",
       "type": "categorical"
@@ -70,7 +75,8 @@
     "division_exposure",
     "country_exposure",
     "group",
-    "Cluster_ID"
+    "Cluster_ID", 
+    "epiweek"
   ],
   "panels": [
     "tree",
