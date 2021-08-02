@@ -11,7 +11,6 @@ import pycountry
 import argparse
 from Bio import SeqIO
 import pandas as pd
-import numpy as np
 from epiweeks import Week
 import time
 
