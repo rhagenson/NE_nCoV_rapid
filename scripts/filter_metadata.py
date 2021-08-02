@@ -152,14 +152,6 @@ if __name__ == '__main__':
     }
 
 
-    # create a dict of existing sequences
-    print('\nProcessing sequence file...\n')
-    sequences = {}
-    for fasta in SeqIO.parse(open(genomes), 'fasta'):
-        id, seq = fasta.description, fasta.seq
-        if id not in sequences.keys():
-            sequences[id] = str(seq)
-
     # nextstrain metadata
     dfN = pd.read_csv(metadata1, encoding='utf-8', sep='\t', dtype='str')
     dfN.insert(5, 'iso', '')
