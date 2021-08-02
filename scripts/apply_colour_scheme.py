@@ -19,6 +19,7 @@ if __name__ == '__main__':
     parser.add_argument("--grid", required=True, help="HTML file with HEX colour matrices")
     parser.add_argument("--columns", nargs='+', type=str,   help="list of columns with geographic information")
     parser.add_argument("--output", required=True, help="TSV file containing ordered HEX colours based on locations")
+    parser.add_argument("--filter", required=False, nargs='+', type=str,  help="List of filters for tagged rows in lab metadata")
     args = parser.parse_args()
 
     metadata = args.metadata
