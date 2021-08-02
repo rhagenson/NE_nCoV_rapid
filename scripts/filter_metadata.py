@@ -160,6 +160,7 @@ if __name__ == '__main__':
     dfN['sequencing_date'] = ''
     dfN['group'] = ''
     dfN['Cluster_ID'] = ''
+    dfN.fillna('', inplace=True)
 
      # add tag of variant category
     def variant_category(lineage):
@@ -170,8 +171,6 @@ if __name__ == '__main__':
         return var_category
 
     dfN['category'] = dfN['pango_lineage'].apply(lambda x: variant_category(x))
-
-    dfN.fillna('', inplace=True)
     
     list_columns = dfN.columns.values  # list of column in the original metadata file
 
@@ -179,10 +178,10 @@ if __name__ == '__main__':
     dfE = pd.read_excel(metadata2, index_col=None, header=0, sheet_name=0,
                         # 'sheet_name' must be changed to match the Excel sheet name
                         converters={'sample': str, 'sample_id': str, 'collection-date': str, 'category': str, 'batch': str, 'group': str, 'Cluster_ID': str})  # this need to be tailored to your lab's naming system
+    dfE.fillna('', inplace=True)
+    
     dfE = dfE.rename(columns={'sample': 'id', 'collection-date': 'date', 'lab': 'originating_lab', 'Filter': 'filter' })
     dfE['epiweek'] = ''
-
-    dfE.fillna('', inplace=True)
     
     # exclude rows with no ID
     if 'id' in dfE.columns.to_list():
