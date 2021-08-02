@@ -34,9 +34,11 @@ if __name__ == '__main__':
     output1 = args.output1
     output2 = args.output2
 
+    # path =
     # genomes = path + 'pre-analyses/temp_sequences.fasta'
     # metadata1 = path + 'pre-analyses/metadata_nextstrain.tsv'
     # metadata2 = path + 'pre-analyses/SC2_Project_NE_DHHS.xlsx'
+    # filterby =
     # output1 = path + 'pre-analyses/metadata_filtered.tsv'
     # output2 = path + 'pre-analyses/sequences.fasta'
     
