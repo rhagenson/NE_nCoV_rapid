@@ -151,7 +151,6 @@ if __name__ == '__main__':
         'Wyoming': 'WY'
     }
 
-    pd.set_option('max_columns', 100)
 
     # create a dict of existing sequences
     print('\nProcessing sequence file...\n')
