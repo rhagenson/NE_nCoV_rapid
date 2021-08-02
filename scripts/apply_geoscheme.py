@@ -13,6 +13,7 @@ if __name__ == '__main__':
     parser.add_argument("--metadata", required=True, help="Nextstrain metadata file")
     parser.add_argument("--geoscheme", required=True, help="XML file with geographic classifications")
     parser.add_argument("--output", required=True, help="Updated metadata file")
+    parser.add_argument("--filter", required=True, nargs='+', type=str, help="Filter region to define focus")
     args = parser.parse_args()
 
     metadata = args.metadata
