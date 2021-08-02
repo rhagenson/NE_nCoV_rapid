@@ -180,7 +180,7 @@ if __name__ == '__main__':
                         converters={'sample': str, 'sample_id': str, 'collection-date': str, 'category': str, 'batch': str, 'group': str, 'Cluster_ID': str, 'Filter': str})  # this need to be tailored to your lab's naming system
     dfE.fillna('', inplace=True)
     
-    dfE = dfE.rename(columns={'sample': 'id', 'collection-date': 'date', 'lab': 'originating_lab', 'Filter': 'filter' })
+    dfE = dfE.rename(columns={'sample_id': 'id', 'collection-date': 'date', 'lab': 'originating_lab', 'Filter': 'filter' })
     dfE['epiweek'] = ''
     
     # exclude rows with no ID
@@ -275,7 +275,7 @@ if __name__ == '__main__':
             else:
                 code = row['state']
                 
-            strain = code + '/' + row['id'] + '/' + sample_id # new strain name
+            strain = code + '/' + row['id'] + '/' + sample # new strain name
 
             dict_row['strain'] = strain
             dict_row['iso'] = get_iso(dict_row['country'])
