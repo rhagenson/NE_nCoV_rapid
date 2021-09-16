@@ -30,7 +30,7 @@ rule files:
         metadata_lab="pre-analyses/SC2_Project_NE_DHHS.xlsx",
         cache="config/cache_coordinates.tsv",
         keep="config/keep.txt",
-        remove="config/remove.txt",
+        rm="config/remove.txt",
         reference="config/reference.gb",
         geoscheme="config/geoscheme.tsv",
         colour_grid="config/colour_grid.html",
@@ -55,7 +55,7 @@ rule add_sequences:
         genomes=files.original_dataset,
         new_genomes=files.new_genomes,
         include=files.keep,
-        exclude=files.remove,
+        exclude=files.rm,
     output:
         sequences="pre-analyses/temp_sequences.fasta",
     shell:
